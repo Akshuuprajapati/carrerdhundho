@@ -4,29 +4,28 @@ import json
 app = Flask(__name__)
 
 # Load career data from JSON
-with open("career_data.json", "r", encoding="utf-8") as f:
+with open('career_data.json') as f:
     careers = json.load(f)
 
-def match_careers(user_interests):
-    scores = []
-    for career in careers:
-        match_score = len(set(user_interests) & set(career["keywords"]))
-        if match_score > 0:
-            scores.append((match_score, career))
-    scores.sort(reverse=True, key=lambda x: x[0])
-    return [career for score, career in scores[:5]]  # top 5
+# Extract all unique interests
+all_keywords = sorted(list({kw for c in careers for kw in c["keywords"]}))
 
-@app.route("/")
+@app.route('/')
 def index():
-    # Collect all unique interests from data
-    all_keywords = sorted({kw for career in careers for kw in career["keywords"]})
     return render_template("index.html", interests=all_keywords)
 
-@app.route("/result", methods=["POST"])
+@app.route('/result', methods=['POST'])
 def result():
-    selected_interests = request.form.getlist("interests")
-    matched_careers = match_careers(selected_interests)
-    return render_template("result.html", careers=matched_careers, selected_interests=selected_interests)
+    selected_interests = request.form.getlist('interests')
 
-if __name__ == "__main__":
-    app.run(debug=True)
+    def match_score(career):
+        return len(set(selected_interests) & set(career['keywords']))
+
+    # Calculate score and sort careers
+    sorted_careers = sorted(careers, key=match_score, reverse=True)
+    top_5 = sorted_careers[:5]
+
+    return render_template("result.html", careers=top_5)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=10000)
