@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Career Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Top Career Suggestions</h1>
+        <p>You selected interests: <strong>{{ selected_interests | join(', ') }}</strong></p>
+        <div class="career-results">
+            {% for career in careers %}
+            <div class="career-card">
+                <h2>{{ career.title }}</h2>
+                <p>{{ career.message }}</p>
+                <p><strong>Matched Interests:</strong> {{ career.keywords | join(', ') }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="/" class="back-btn">🔙 Try Again</a>
+    </div>
+</body>
+</html>

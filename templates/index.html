@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Path Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Career Path Recommendation System</h1>
+        <form method="POST" action="/result">
+            <h3>Select your interests:</h3>
+            <div class="checkboxes">
+                {% for interest in interests %}
+                <label>
+                    <input type="checkbox" name="interests" value="{{ interest }}">
+                    {{ interest }}
+                </label>
+                {% endfor %}
+            </div>
+            <button type="submit">Find My Career Path</button>
+        </form>
+    </div>
+</body>
+</html>
