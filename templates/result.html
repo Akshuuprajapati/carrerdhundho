@@ -2,53 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Career Recommendations</title>
+    <title>Career Path Recommendation</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        .career-card {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-        .job-role {
-            background-color: #eef;
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .motivation {
-            font-style: italic;
-            color: #444;
-            margin-top: 5px;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1>✨ Top Career Recommendations</h1>
-        <p><strong>Selected Interests:</strong> {{ request.form.getlist('interests') | join(', ') }}</p>
-        <div class="career-results">
-            {% for career in careers %}
-            <div class="career-card">
-                <h2>{{ career.title }}</h2>
-                <p class="motivation">💡 {{ career.motivation }}</p>
-                {% if career.matching_jobs %}
-                    <h4>🔎 Matched Job Roles:</h4>
-                    {% for job in career.matching_jobs %}
-                    <div class="job-role">
-                        <strong>{{ job.title }}</strong> ({{ job.experience_level }} Level)<br>
-                        <em>🧠 {{ job.thought }}</em>
-                    </div>
-                    {% endfor %}
-                {% else %}
-                    <p><em>No matching job roles found for this experience level.</em></p>
-                {% endif %}
+        <h1>Career Path Recommendation System</h1>
+        <p>Select your interests and discover matching career paths.</p>
+        <form action="/result" method="POST">
+            <div class="interests">
+                {% for interest in interests %}
+                    <label>
+                        <input type="checkbox" name="interests" value="{{ interest }}">
+                        {{ interest }}
+                    </label><br>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
-        <a href="/" class="back-btn">🔙 Try Again</a>
+            <button type="submit">Get Recommendations</button>
+        </form>
     </div>
 </body>
 </html>
