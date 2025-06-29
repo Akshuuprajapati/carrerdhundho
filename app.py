@@ -1,17 +1,27 @@
 
 from flask import Flask, render_template, request
 import json
+import random
 
 app = Flask(__name__)
 
-# Load the nested career data
+# Load career data
 with open("career_data.json", "r") as f:
     data = json.load(f)
     career_paths = data["career_paths"]
     experience_levels = data["experience_levels"]
 
-# Extract all unique keywords for interest checkboxes
+# Extract all unique interest keywords
 all_keywords = sorted({kw for career in career_paths for kw in career["keywords"]})
+
+# Sample motivational quotes
+motivational_quotes = [
+    "Success doesn't come to you – you go to it.",
+    "The future depends on what you do today.",
+    "Your passion is your power – use it wisely.",
+    "Dream big, start small, act now.",
+    "Don’t watch the clock; do what it does – keep going."
+]
 
 @app.route("/")
 def index():
@@ -25,11 +35,9 @@ def result():
     matching_careers = []
 
     for career in career_paths:
-        # Match based on top-level keywords
         career_score = len(set(career["keywords"]).intersection(set(selected_interests)))
-
-        # Check for matching jobs within the career path
         matching_jobs = []
+
         for job in career.get("jobs", []):
             job_keywords = job.get("keywords", [])
             job_score = len(set(job_keywords).intersection(set(selected_interests)))
@@ -44,7 +52,8 @@ def result():
             matching_careers.append({
                 "title": career["title"],
                 "score": career_score,
-                "matching_jobs": sorted(matching_jobs, key=lambda x: x["score"], reverse=True)
+                "matching_jobs": sorted(matching_jobs, key=lambda x: x["score"], reverse=True),
+                "motivation": random.choice(motivational_quotes)
             })
 
     sorted_careers = sorted(matching_careers, key=lambda x: x["score"], reverse=True)
