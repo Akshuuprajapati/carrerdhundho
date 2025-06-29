@@ -6,8 +6,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Career Path Recommendation System</h1>
+    <!-- 3D Background Canvas -->
+    <canvas id="background"></canvas>
+
+    <div class="container fade-in">
+        <h1>🌟 Career Path Recommendation System</h1>
         <form method="POST" action="/result">
             <h3>Select your interests:</h3>
             <div class="checkboxes">
@@ -21,5 +24,7 @@
             <button type="submit">Find My Career Path</button>
         </form>
     </div>
+
+    <script src="{{ url_for('static', filename='background.js') }}"></script>
 </body>
 </html>
