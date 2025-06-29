@@ -6,61 +6,41 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <canvas id="background"></canvas>
+    <div class="animated-background">
+        <div class="result-box">
+            <h1>✨ Top Career Recommendations</h1>
+            <p><strong>Selected Interests:</strong> {{ selected_interests | join(', ') }}</p>
 
-    <div class="container fade-in">
-        <h1>✨ Top Career Recommendations</h1>
-
-        <p><strong>Selected Interests:</strong> {{ selected_interests | join(', ') }}</p>
-
-        {% if careers %}
-        <div class="career-results">
-            {% for career in careers %}
-            <div class="career-card">
-                <h2>{{ career.title }}</h2>
-                {% if career.motivation %}
-                <p><strong>Motivation:</strong> {{ career.motivation }}</p>
-                {% endif %}
-                <p><strong>Matched Interests:</strong> {{ career.keywords | join(', ') }}</p>
-
-                <p><strong>Learning Resources:</strong></p>
-                <ul>
-                    {% if career.resources.websites %}
-                    <li>Websites:
+            {% if careers %}
+                <div class="career-results">
+                    {% for career in careers %}
+                    <div class="career-card">
+                        <h2>{{ career.title }}</h2>
+                        <p><strong>Matched Interests:</strong> {{ career.keywords | join(', ') }}</p>
+                        <p><strong>Suggested Careers:</strong></p>
+                        <ul>
+                            {% for path in career.career_paths %}
+                            <li>{{ path }}</li>
+                            {% endfor %}
+                        </ul>
+                        <p><strong>Resources:</strong></p>
                         <ul>
                             {% for site in career.resources.websites %}
                             <li><a href="{{ site }}" target="_blank">{{ site }}</a></li>
                             {% endfor %}
-                        </ul>
-                    </li>
-                    {% endif %}
-                    {% if career.resources.youtube %}
-                    <li>YouTube:
-                        <ul>
                             {% for yt in career.resources.youtube %}
                             <li><a href="{{ yt }}" target="_blank">{{ yt }}</a></li>
                             {% endfor %}
                         </ul>
-                    </li>
-                    {% endif %}
-                </ul>
-
-                <p><strong>Suggested Career Paths:</strong></p>
-                <ul>
-                    {% for path in career.career_paths %}
-                    <li>{{ path }}</li>
+                    </div>
                     {% endfor %}
-                </ul>
-            </div>
-            {% endfor %}
+                </div>
+            {% else %}
+                <p>No matching careers found. Try selecting different interests.</p>
+            {% endif %}
+
+            <a href="/" class="back-btn">🔙 Try Again</a>
         </div>
-        {% else %}
-        <p>No matching careers found for your interests. Please try selecting different interests.</p>
-        {% endif %}
-
-        <a href="/" class="back-btn">🔙 Try Again</a>
     </div>
-
-    <script src="{{ url_for('static', filename='background.js') }}"></script>
 </body>
 </html>
