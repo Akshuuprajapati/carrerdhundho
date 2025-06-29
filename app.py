@@ -3,14 +3,18 @@ import json
 
 app = Flask(__name__)
 
-# Load data from career_data.json
+# ✅ Correct: Load interests from correct key
 with open("career_data.json", "r") as f:
     data = json.load(f)
 
-career_paths = data.get("career_paths", [])
+interests_data = data.get("interests", [])
+all_keywords = sorted([interest["name"] for interest in interests_data])  # Extract names only
 
-# Extract all unique keywords for interests
-all_keywords = sorted({kw for career in career_paths for kw in career.get("keywords", [])})
+@app.route("/")
+def index():
+    return render_template("index.html", interests=all_keywords)
+
+
 
 
 @app.route("/")
@@ -23,28 +27,18 @@ def result():
     selected_interests = request.form.getlist("interests")
     recommendations = []
 
-    for career in career_paths:
-        matched_keywords = list(set(career.get("keywords", [])) & set(selected_interests))
-        if matched_keywords:
-            matched_jobs = []
-            for job in career.get("jobs", []):
-                if set(job.get("keywords", [])) & set(selected_interests):
-                    matched_jobs.append({
-                        "title": job.get("title", "Job Title"),
-                        "experience_level": job.get("experience_level", "N/A")
-                    })
-
+    for interest in interests_data:
+        if interest["name"] in selected_interests:
             recommendations.append({
-                "title": career.get("title", "Career"),
-                "keywords": matched_keywords,
-                "fields": career.get("fields", []),
-                "matching_jobs": matched_jobs
+                "title": interest["name"],
+                "motivation": interest.get("motivation", ""),
+                "resources": interest.get("resources", {}),
+                "career_paths": interest.get("career_paths", []),
+                "keywords": [interest["name"]]  # for display
             })
 
-    # Sort top 5 best match careers
-    top_careers = sorted(recommendations, key=lambda x: len(x["keywords"]), reverse=True)[:5]
+    return render_template("result.html", careers=recommendations, selected_interests=selected_interests)
 
-    return render_template("result.html", careers=top_careers, selected_interests=selected_interests)
 
 
 if __name__ == "__main__":
