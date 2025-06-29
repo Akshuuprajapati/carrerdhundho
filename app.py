@@ -3,14 +3,14 @@ import json
 
 app = Flask(__name__)
 
-# Load interest data from JSON
-with open("interest_data.json", "r") as f:
+with open("career_data.json", "r") as f:
     data = json.load(f)
 
-interests_data = data.get("interests", [])
+career_paths = data.get("career_paths", [])
 
-# Collect all interest names for the form
-all_interest_names = sorted([interest["name"] for interest in interests_data])
+# Automatically extract all unique interests from keywords
+all_keywords = sorted({kw for career in career_paths for kw in career.get("keywords", [])})
+
 
 @app.route("/")
 def index():
