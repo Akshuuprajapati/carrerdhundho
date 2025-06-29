@@ -1,31 +1,56 @@
+
 from flask import Flask, render_template, request
 import json
 
 app = Flask(__name__)
 
-# Load career data from JSON
-with open('career_data.json') as f:
-    careers = json.load(f)
+# Load the nested career data
+with open("career_data.json", "r") as f:
+    data = json.load(f)
+    career_paths = data["career_paths"]
+    experience_levels = data["experience_levels"]
 
-# Extract all unique interests
-all_keywords = sorted(list({kw for c in careers for kw in c["keywords"]}))
+# Extract all unique keywords for interest checkboxes
+all_keywords = sorted({kw for career in career_paths for kw in career["keywords"]})
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template("index.html", interests=all_keywords)
+    return render_template("index.html", interests=all_keywords, experience_levels=experience_levels)
 
-@app.route('/result', methods=['POST'])
+@app.route("/result", methods=["POST"])
 def result():
-    selected_interests = request.form.getlist('interests')
+    selected_interests = request.form.getlist("interests")
+    selected_experience = request.form.get("experience")
 
-    def match_score(career):
-        return len(set(selected_interests) & set(career['keywords']))
+    matching_careers = []
 
-    # Calculate score and sort careers
-    sorted_careers = sorted(careers, key=match_score, reverse=True)
-    top_5 = sorted_careers[:5]
+    for career in career_paths:
+        # Match based on top-level keywords
+        career_score = len(set(career["keywords"]).intersection(set(selected_interests)))
 
-    return render_template("result.html", careers=top_5)
+        # Check for matching jobs within the career path
+        matching_jobs = []
+        for job in career.get("jobs", []):
+            job_keywords = job.get("keywords", [])
+            job_score = len(set(job_keywords).intersection(set(selected_interests)))
+            if job_score > 0 and job.get("experience_level") == selected_experience:
+                matching_jobs.append({
+                    "title": job["title"],
+                    "experience_level": job["experience_level"],
+                    "score": job_score
+                })
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000)
+        if career_score > 0 or matching_jobs:
+            matching_careers.append({
+                "title": career["title"],
+                "score": career_score,
+                "matching_jobs": sorted(matching_jobs, key=lambda x: x["score"], reverse=True)
+            })
+
+    sorted_careers = sorted(matching_careers, key=lambda x: x["score"], reverse=True)
+    top_careers = sorted_careers[:5]
+
+    return render_template("result.html", careers=top_careers)
+
+if __name__ == "__main__":
+    app.run(debug=True)
