@@ -2,24 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Career Path Recommendation</title>
+    <title>Your Career Recommendations</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Career Path Recommendation System</h1>
-        <p>Select your interests and discover matching career paths.</p>
-        <form action="/result" method="POST">
-            <div class="interests">
-                {% for interest in interests %}
-                    <label>
-                        <input type="checkbox" name="interests" value="{{ interest }}">
-                        {{ interest }}
-                    </label><br>
+        <h1>✨ Top Career Recommendations</h1>
+        <p><strong>Selected Interests:</strong> {{ selected_interests | join(', ') }}</p>
+
+        {% if careers %}
+            <div class="career-results">
+                {% for career in careers %}
+                    <div class="career-card">
+                        <h2>{{ career.title }}</h2>
+                        <p>💡 {{ career.motivation }}</p>
+
+                        {% if career.matching_jobs %}
+                            <ul>
+                                {% for job in career.matching_jobs %}
+                                    <li>
+                                        <strong>{{ job.title }}</strong> — {{ job.thought }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No matching job roles found, but this field has great potential!</p>
+                        {% endif %}
+                    </div>
                 {% endfor %}
             </div>
-            <button type="submit">Get Recommendations</button>
-        </form>
+        {% else %}
+            <p>No careers matched your interests. Try selecting more or different options.</p>
+        {% endif %}
+
+        <a href="/" class="back-btn">🔙 Try Again</a>
     </div>
 </body>
 </html>
