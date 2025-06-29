@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: career-recommendation
-    runtime: python
+    name: career-recommender
+    env: python
     buildCommand: ""
     startCommand: python app.py
-    envVars:
-      - key: FLASK_ENV
-        value: production
+    plan: free
+    runtime: python
+    region: oregon
