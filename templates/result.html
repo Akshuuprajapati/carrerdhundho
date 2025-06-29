@@ -8,31 +8,52 @@
 <body>
     <div class="container">
         <h1>✨ Top Career Recommendations</h1>
+
         <p><strong>Selected Interests:</strong> {{ selected_interests | join(', ') }}</p>
 
         {% if careers %}
-            <div class="career-results">
-                {% for career in careers %}
-                    <div class="career-card">
-                        <h2>{{ career.title }}</h2>
-                        <p>💡 {{ career.motivation }}</p>
+        <div class="career-results">
+            {% for career in careers %}
+            <div class="career-card">
+                <h2>{{ career.title }}</h2>
+                <p><strong>Motivation:</strong> {{ career.motivation }}</p>
 
-                        {% if career.matching_jobs %}
-                            <ul>
-                                {% for job in career.matching_jobs %}
-                                    <li>
-                                        <strong>{{ job.title }}</strong> — {{ job.thought }}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% else %}
-                            <p>No matching job roles found, but this field has great potential!</p>
-                        {% endif %}
-                    </div>
-                {% endfor %}
+                <p><strong>Matched Interests:</strong> {{ career.keywords | join(', ') }}</p>
+
+                <p><strong>Learning Resources:</strong></p>
+                <ul>
+                    {% if career.resources.websites %}
+                    <li>Websites:
+                        <ul>
+                            {% for site in career.resources.websites %}
+                            <li><a href="{{ site }}" target="_blank">{{ site }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endif %}
+
+                    {% if career.resources.youtube %}
+                    <li>YouTube:
+                        <ul>
+                            {% for yt in career.resources.youtube %}
+                            <li><a href="{{ yt }}" target="_blank">{{ yt }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endif %}
+                </ul>
+
+                <p><strong>Suggested Career Paths:</strong></p>
+                <ul>
+                    {% for path in career.career_paths %}
+                    <li>{{ path }}</li>
+                    {% endfor %}
+                </ul>
             </div>
+            {% endfor %}
+        </div>
         {% else %}
-            <p>No careers matched your interests. Try selecting more or different options.</p>
+            <p>No matching careers found for your interests. Please try selecting different interests.</p>
         {% endif %}
 
         <a href="/" class="back-btn">🔙 Try Again</a>
