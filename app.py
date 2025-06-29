@@ -7,7 +7,6 @@ app = Flask(__name__)
 with open("career_data.json", "r") as f:
     data = json.load(f)
     career_paths = data["career_paths"]
-    experience_levels = data["experience_levels"]
 
 all_keywords = sorted({kw for career in career_paths for kw in career["keywords"]})
 
@@ -29,12 +28,11 @@ job_thoughts = [
 
 @app.route("/")
 def index():
-    return render_template("index.html", interests=all_keywords, experience_levels=experience_levels)
+    return render_template("index.html", interests=all_keywords)
 
 @app.route("/result", methods=["POST"])
 def result():
     selected_interests = request.form.getlist("interests")
-    selected_experience = request.form.get("experience")
 
     matching_careers = []
 
@@ -45,10 +43,9 @@ def result():
         for job in career.get("jobs", []):
             job_keywords = job.get("keywords", [])
             job_score = len(set(job_keywords).intersection(set(selected_interests)))
-            if job_score > 0 and job.get("experience_level") == selected_experience:
+            if job_score > 0:
                 matching_jobs.append({
                     "title": job["title"],
-                    "experience_level": job["experience_level"],
                     "score": job_score,
                     "thought": random.choice(job_thoughts)
                 })
@@ -64,7 +61,7 @@ def result():
     sorted_careers = sorted(matching_careers, key=lambda x: x["score"], reverse=True)
     top_careers = sorted_careers[:5]
 
-    return render_template("result.html", careers=top_careers)
+    return render_template("result.html", careers=top_careers, selected_interests=selected_interests)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=10000)
