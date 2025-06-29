@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
+    <canvas id="background"></canvas>
+
+    <div class="container fade-in">
         <h1>✨ Top Career Recommendations</h1>
 
         <p><strong>Selected Interests:</strong> {{ selected_interests | join(', ') }}</p>
@@ -16,8 +18,9 @@
             {% for career in careers %}
             <div class="career-card">
                 <h2>{{ career.title }}</h2>
+                {% if career.motivation %}
                 <p><strong>Motivation:</strong> {{ career.motivation }}</p>
-
+                {% endif %}
                 <p><strong>Matched Interests:</strong> {{ career.keywords | join(', ') }}</p>
 
                 <p><strong>Learning Resources:</strong></p>
@@ -31,7 +34,6 @@
                         </ul>
                     </li>
                     {% endif %}
-
                     {% if career.resources.youtube %}
                     <li>YouTube:
                         <ul>
@@ -53,10 +55,12 @@
             {% endfor %}
         </div>
         {% else %}
-            <p>No matching careers found for your interests. Please try selecting different interests.</p>
+        <p>No matching careers found for your interests. Please try selecting different interests.</p>
         {% endif %}
 
         <a href="/" class="back-btn">🔙 Try Again</a>
     </div>
+
+    <script src="{{ url_for('static', filename='background.js') }}"></script>
 </body>
 </html>
