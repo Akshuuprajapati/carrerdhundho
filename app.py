@@ -3,14 +3,14 @@ import json
 
 app = Flask(__name__)
 
-# Load career data from career_data.json
+# Load interest-based data
 with open("career_data.json", "r") as f:
-    interest_data = json.load(f)
+    data = json.load(f)
 
-interests_list = interest_data.get("interests", [])
+interest_data = data.get("interests", [])
 
-# Extract list of interest names
-all_interest_names = sorted([item["name"] for item in interests_list])
+# Extract all interest names
+all_interest_names = sorted([item["name"] for item in interest_data])
 
 @app.route("/")
 def index():
@@ -21,13 +21,13 @@ def result():
     selected_interests = request.form.getlist("interests")
     recommendations = []
 
-    for interest in interests_list:
-        if interest["name"] in selected_interests:
+    for item in interest_data:
+        if item["name"] in selected_interests:
             recommendations.append({
-                "title": interest["name"],
-                "motivation": interest.get("motivation", ""),
-                "resources": interest.get("resources", {}),
-                "career_paths": interest.get("career_paths", [])
+                "title": item["name"],
+                "motivation": item.get("motivation", ""),
+                "resources": item.get("resources", {}),
+                "career_paths": item.get("career_paths", [])
             })
 
     return render_template("result.html", careers=recommendations, selected_interests=selected_interests)
