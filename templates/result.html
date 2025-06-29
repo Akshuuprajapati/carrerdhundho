@@ -7,34 +7,44 @@
 </head>
 <body>
     <div class="animated-background">
+        <div class="typing-animation">
+            <span id="typing-text"></span>
+        </div>
+
         <div class="result-box">
             <h1>✨ Top Career Recommendations</h1>
+
             <p><strong>Selected Interests:</strong> {{ selected_interests | join(', ') }}</p>
 
             {% if careers %}
-                <div class="career-results">
-                    {% for career in careers %}
-                    <div class="career-card">
-                        <h2>{{ career.title }}</h2>
-                        <p><strong>Matched Interests:</strong> {{ career.keywords | join(', ') }}</p>
-                        <p><strong>Suggested Careers:</strong></p>
-                        <ul>
-                            {% for path in career.career_paths %}
-                            <li>{{ path }}</li>
-                            {% endfor %}
-                        </ul>
-                        <p><strong>Resources:</strong></p>
-                        <ul>
-                            {% for site in career.resources.websites %}
-                            <li><a href="{{ site }}" target="_blank">{{ site }}</a></li>
-                            {% endfor %}
-                            {% for yt in career.resources.youtube %}
-                            <li><a href="{{ yt }}" target="_blank">{{ yt }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endfor %}
+            <div class="career-results">
+                {% for career in careers %}
+                <div class="career-card">
+                    <h2>{{ career.title }}</h2>
+
+                    <p><strong>Motivation:</strong> {{ career.motivation }}</p>
+
+                    <p><strong>Matched Interests:</strong> {{ career.keywords | join(', ') }}</p>
+
+                    <p><strong>Suggested Careers:</strong></p>
+                    <ul>
+                        {% for path in career.career_paths %}
+                        <li>{{ path }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <p><strong>Resources:</strong></p>
+                    <ul>
+                        {% for site in career.resources.websites %}
+                        <li><a href="{{ site }}" target="_blank">{{ site }}</a></li>
+                        {% endfor %}
+                        {% for yt in career.resources.youtube %}
+                        <li><a href="{{ yt }}" target="_blank">{{ yt }}</a></li>
+                        {% endfor %}
+                    </ul>
                 </div>
+                {% endfor %}
+            </div>
             {% else %}
                 <p>No matching careers found. Try selecting different interests.</p>
             {% endif %}
@@ -42,5 +52,18 @@
             <a href="/" class="back-btn">🔙 Try Again</a>
         </div>
     </div>
+
+    <script>
+        const text = "Analyzing your strengths... Generating career matches...🚀";
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typing-text").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 80);
+            }
+        }
+        typeWriter();
+    </script>
 </body>
 </html>
