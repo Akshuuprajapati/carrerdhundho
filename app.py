@@ -1,26 +1,30 @@
-
 from flask import Flask, render_template, request
 import json
 import random
 
 app = Flask(__name__)
 
-# Load career data
 with open("career_data.json", "r") as f:
     data = json.load(f)
     career_paths = data["career_paths"]
     experience_levels = data["experience_levels"]
 
-# Extract all unique interest keywords
 all_keywords = sorted({kw for career in career_paths for kw in career["keywords"]})
 
-# Sample motivational quotes
 motivational_quotes = [
-    "Success doesn't come to you – you go to it.",
-    "The future depends on what you do today.",
-    "Your passion is your power – use it wisely.",
-    "Dream big, start small, act now.",
-    "Don’t watch the clock; do what it does – keep going."
+    "Chase your passion, not your pension.",
+    "Start where you are. Use what you have. Do what you can.",
+    "Believe you can and you're halfway there.",
+    "Every expert was once a beginner.",
+    "Opportunities don't happen, you create them."
+]
+
+job_thoughts = [
+    "This role needs a mix of creativity and logic!",
+    "Perfect for those who love solving real-world problems.",
+    "If you enjoy learning and adapting, this is for you!",
+    "You’ll be building the future with this role.",
+    "Think big, start small, and grow fast in this role!"
 ]
 
 @app.route("/")
@@ -45,7 +49,8 @@ def result():
                 matching_jobs.append({
                     "title": job["title"],
                     "experience_level": job["experience_level"],
-                    "score": job_score
+                    "score": job_score,
+                    "thought": random.choice(job_thoughts)
                 })
 
         if career_score > 0 or matching_jobs:
