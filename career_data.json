@@ -1,110 +1,507 @@
 {
-  "career_paths": [
+  "interests": [
     {
-      "title": "Frontend Developer",
-      "keywords": ["HTML", "CSS", "JavaScript", "React", "UI/UX", "Responsive Design"],
-      "fields": ["Web Development", "UI Development"],
-      "jobs": [
-        {
-          "title": "Junior Frontend Developer",
-          "keywords": ["HTML", "CSS", "JavaScript"],
-          "experience_level": "Entry"
-        },
-        {
-          "title": "React Developer",
-          "keywords": ["React", "Redux", "JavaScript"],
-          "experience_level": "Mid"
-        },
-        {
-          "title": "Frontend Architect",
-          "keywords": ["TypeScript", "React", "Performance"],
-          "experience_level": "Senior"
-        }
-      ]
+      "name": "Cybersecurity",
+      "motivation": "Security is not a product, but a process.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.cybrary.it/",
+          "https://www.khanacademy.org/computing/computer-science/internet-intro",
+          "https://www.sans.org/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/TheCyberMentor",
+          "https://www.youtube.com/c/NetworkChuck"
+        ]
+      },
+      "career_paths": ["Security Analyst", "Penetration Tester", "Security Engineer"]
     },
     {
-      "title": "Backend Developer",
-      "keywords": ["Node.js", "Python", "Java", "Databases", "APIs"],
-      "fields": ["Web Development", "API Development", "Systems"],
-      "jobs": [
-        {
-          "title": "Backend Engineer",
-          "keywords": ["Node.js", "Express", "MongoDB"],
-          "experience_level": "Mid"
-        },
-        {
-          "title": "Java Developer",
-          "keywords": ["Java", "Spring Boot", "SQL"],
-          "experience_level": "Mid"
-        },
-        {
-          "title": "Senior DevOps Engineer",
-          "keywords": ["AWS", "Docker", "CI/CD"],
-          "experience_level": "Senior"
-        }
-      ]
+      "name": "Blockchain",
+      "motivation": "Blockchain is the tech. Bitcoin is merely the first mainstream manifestation of its potential.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.blockchain.com/",
+          "https://www.coindesk.com/",
+          "https://www.ethereum.org/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/AndreasMAntonopoulos",
+          "https://www.youtube.com/c/SimplyExplained"
+        ]
+      },
+      "career_paths": ["Blockchain Developer", "Smart Contract Engineer", "Cryptocurrency Analyst"]
     },
     {
-      "title": "Data Scientist",
-      "keywords": ["Python", "Machine Learning", "Data Analysis", "Statistics"],
-      "fields": ["Data Engineering", "AI", "Analytics"],
-      "jobs": [
-        {
-          "title": "Data Analyst",
-          "keywords": ["SQL", "Excel", "Visualization"],
-          "experience_level": "Entry"
-        },
-        {
-          "title": "Machine Learning Engineer",
-          "keywords": ["Python", "TensorFlow", "PyTorch"],
-          "experience_level": "Mid"
-        },
-        {
-          "title": "Data Science Manager",
-          "keywords": ["Leadership", "Project Management", "Python"],
-          "experience_level": "Senior"
-        }
-      ]
+      "name": "Cloud Computing",
+      "motivation": "The cloud is for everyone, but not everyone is ready for the cloud.",
+      "level": "Beginner to Expert",
+      "resources": {
+        "websites": [
+          "https://aws.amazon.com/training/",
+          "https://cloud.google.com/training",
+          "https://azure.microsoft.com/en-us/training/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/AmazonWebServices",
+          "https://www.youtube.com/c/GoogleCloudPlatform"
+        ]
+      },
+      "career_paths": ["Cloud Engineer", "Cloud Architect", "DevOps Engineer"]
     },
     {
-      "title": "Mobile Developer",
-      "keywords": ["Android", "iOS", "React Native", "Flutter", "Kotlin"],
-      "fields": ["Mobile Development", "App Development"],
-      "jobs": [
-        {
-          "title": "Android Developer",
-          "keywords": ["Kotlin", "Android SDK", "Java"],
-          "experience_level": "Mid"
-        },
-        {
-          "title": "iOS Developer",
-          "keywords": ["Swift", "UIKit", "Xcode"],
-          "experience_level": "Mid"
-        },
-        {
-          "title": "Mobile Architect",
-          "keywords": ["React Native", "Flutter", "Cross-platform"],
-          "experience_level": "Senior"
-        }
-      ]
+      "name": "DevOps",
+      "motivation": "DevOps is not a goal, but a never-ending process of continual improvement.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.devops.com/",
+          "https://www.atlassian.com/devops",
+          "https://www.docker.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/DevOpsTV",
+          "https://www.youtube.com/c/TheDevOpsLab"
+        ]
+      },
+      "career_paths": ["DevOps Engineer", "Site Reliability Engineer", "Release Manager"]
     },
     {
-      "title": "Full Stack Developer",
-      "keywords": ["JavaScript", "Node.js", "React", "Databases", "APIs"],
-      "fields": ["Web Development", "Full Stack"],
-      "jobs": [
-        {
-          "title": "Full Stack Engineer",
-          "keywords": ["MERN Stack", "JavaScript", "MongoDB"],
-          "experience_level": "Mid"
-        },
-        {
-          "title": "Senior Full Stack Developer",
-          "keywords": ["TypeScript", "GraphQL", "AWS"],
-          "experience_level": "Senior"
-        }
-      ]
-    }
-  ],
-  "experience_levels": ["Entry", "Mid", "Senior"]
+      "name": "Software Testing",
+      "motivation": "Quality is never an accident; it is always the result of intelligent effort.",
+      "level": "Beginner to Expert",
+      "resources": {
+        "websites": [
+          "https://www.guru99.com/software-testing.html",
+          "https://www.softwaretestinghelp.com/",
+          "https://www.tutorialspoint.com/software_testing/index.htm"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/SoftwareTestingHelp",
+          "https://www.youtube.com/c/AutomationStepByStep"
+        ]
+      },
+      "career_paths": ["QA Engineer", "Test Automation Engineer", "Software Tester"]
+    },
+    {
+      "name": "Game Development",
+      "motivation": "The best way to predict the future of gaming is to create it.",
+      "level": "Beginner to Expert",
+      "resources": {
+        "websites": [
+          "https://unity.com/",
+          "https://www.unrealengine.com/",
+          "https://www.gamedev.net/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/Brackeys",
+          "https://www.youtube.com/c/GameDevTV"
+        ]
+      },
+      "career_paths": ["Game Developer", "Game Designer", "Game Tester"]
+    },
+    {
+      "name": "Artificial Intelligence",
+      "motivation": "AI won't replace humans, but humans with AI will replace humans without AI.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://ai.google/",
+          "https://www.kaggle.com/",
+          "https://arxiv.org/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/TwoMinutePapers",
+          "https://www.youtube.com/c/LexFridman"
+        ]
+      },
+      "career_paths": ["AI Engineer", "Machine Learning Specialist", "Data Scientist"]
+    },
+    {
+      "name": "Augmented Reality",
+      "motivation": "Augmented reality is the next big thing.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.vuforia.com/",
+          "https://unity.com/solutions/augmented-reality",
+          "https://www.wikitude.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/Unity3D",
+          "https://www.youtube.com/c/ARPost"
+        ]
+      },
+      "career_paths": ["AR Developer", "AR Designer", "3D Artist"]
+    },
+    {
+      "name": "Virtual Reality",
+      "motivation": "Virtual reality is the first step in a grand adventure into the landscape of the imagination.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.oculus.com/",
+          "https://www.vive.com/",
+          "https://www.unity.com/solutions/virtual-reality"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/VRChat",
+          "https://www.youtube.com/c/UploadVR"
+        ]
+      },
+      "career_paths": ["VR Developer", "VR Designer", "3D Modeler"]
+    },
+    {
+      "name": "Data Engineering",
+      "motivation": "Without data, you're just another person with an opinion.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.datacamp.com/",
+          "https://www.kaggle.com/",
+          "https://www.databricks.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/DataSchool",
+          "https://www.youtube.com/c/StatQuest"
+        ]
+      },
+      "career_paths": ["Data Engineer", "ETL Developer", "Data Architect"]
+    },
+    {
+      "name": "UI Testing",
+      "motivation": "Testing is a process, not a phase.",
+      "level": "Beginner to Expert",
+      "resources": {
+        "websites": [
+          "https://www.guru99.com/ui-testing.html",
+          "https://www.softwaretestinghelp.com/ui-testing/",
+          "https://www.tutorialspoint.com/ui_testing/index.htm"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/SoftwareTestingHelp",
+          "https://www.youtube.com/c/AutomationStepByStep"
+        ]
+      },
+      "career_paths": ["UI Tester", "QA Engineer", "Test Automation Engineer"]
+    },
+    {
+      "name": "Graphic Design",
+      "motivation": "Design is not just what it looks like and feels like. Design is how it works.",
+      "level": "Beginner to Expert",
+      "resources": {
+        "websites": [
+          "https://www.behance.net/",
+          "https://dribbble.com/",
+          "https://www.canva.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/TheFutur",
+          "https://www.youtube.com/c/YESIMADESIGNER"
+        ]
+      },
+      "career_paths": ["UI/UX Designer", "Graphic Designer", "Visual Designer"]
+    },
+    {
+      "name": "Video Editing",
+      "motivation": "Editing is where the magic happens.",
+      "level": "Beginner to Expert",
+      "resources": {
+        "websites": [
+          "https://www.adobe.com/products/premiere.html",
+          "https://www.finalcutpro.com/",
+          "https://www.lifewire.com/best-video-editing-software-4172955"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/Filmora",
+          "https://www.youtube.com/c/PremiereGal"
+        ]
+      },
+      "career_paths": ["Video Editor", "Film Editor", "Post-Production Specialist"]
+    },
+    {
+      "name": "Content Writing",
+      "motivation": "Writing is the painting of the voice.",
+      "level": "Beginner to Expert",
+      "resources": {
+        "websites": [
+          "https://www.copyblogger.com/",
+          "https://www.writingforward.com/",
+          "https://www.problogger.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/Writerly",
+          "https://www.youtube.com/c/ContentMarketingInstitute"
+        ]
+      },
+      "career_paths": ["Content Writer", "Copywriter", "Content Strategist"]
+    },
+    {
+      "name": "Technical Writing",
+      "motivation": "Good technical writing is like a good map.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.techwhirl.com/",
+          "https://www.writingassist.com/",
+          "https://www.technicalwriting.org/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/TechnicalWriting",
+          "https://www.youtube.com/c/TechWriter"
+        ]
+      },
+      "career_paths": ["Technical Writer", "Documentation Specialist", "Content Developer"]
+    },
+    {
+      "name": "SEO (Search Engine Optimization)",
+      "motivation": "SEO is not about gaming the system; it’s about learning how to play by the rules.",
+      "level": "Beginner to Expert",
+      "resources": {
+        "websites": [
+          "https://moz.com/",
+          "https://ahrefs.com/",
+          "https://neilpatel.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/NeilPatel",
+          "https://www.youtube.com/c/Ahrefs"
+        ]
+      },
+      "career_paths": ["SEO Specialist", "SEO Analyst", "Digital Marketer"]
+    },
+    {
+      "name": "Digital Marketing",
+      "motivation": "Content is king, but distribution is queen and she wears the pants.",
+      "level": "Beginner to Expert",
+      "resources": {
+        "websites": [
+          "https://neilpatel.com/",
+          "https://backlinko.com/",
+          "https://moz.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/NeilPatel",
+          "https://www.youtube.com/c/Ahrefs"
+        ]
+      },
+      "career_paths": ["Digital Marketer", "Content Marketer", "Social Media Manager"]
+    },
+    {
+      "name": "Product Management",
+      "motivation": "The best way to predict the future is to create it.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.productplan.com/",
+          "https://www.aha.io/",
+          "https://www.mindtheproduct.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/ProductSchool",
+          "https://www.youtube.com/c/ThisIsProductManagement"
+        ]
+      },
+      "career_paths": ["Product Manager", "Product Owner", "Product Analyst"]
+    },
+    {
+      "name": "Business Analysis",
+      "motivation": "Business analysis is the key to success.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.iiba.org/",
+          "https://www.batimes.com/",
+          "https://www.businessanalysisexperts.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/BusinessAnalysis",
+          "https://www.youtube.com/c/BridgingTheGap"
+        ]
+      },
+      "career_paths": ["Business Analyst", "Data Analyst", "Requirements Analyst"]
+    },
+    {
+      "name": "Project Management",
+      "motivation": "Project management is like juggling three balls: time, cost, and quality.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.pmi.org/",
+          "https://www.projectmanager.com/",
+          "https://www.wrike.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/ProjectManagementInstitute",
+          "https://www.youtube.com/c/ProjectManagement"
+        ]
+      },
+      "career_paths": ["Project Manager", "Program Manager", "Project Coordinator"]
+    },
+    {
+      "name": "3D Animation",
+      "motivation": "Animation is not the art of drawings that move but the art of movements that are drawn.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.blender.org/",
+          "https://www.autodesk.com/products/maya/overview",
+          "https://www.cgsociety.org/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/Blender",
+          "https://www.youtube.com/c/CGGeek"
+        ]
+      },
+      "career_paths": ["3D Animator", "3D Modeler", "Visual Effects Artist"]
+    },
+    {
+      "name": "Embedded Systems",
+      "motivation": "Embedded systems are everywhere.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.embedded.com/",
+          "https://www.electronics-tutorials.ws/",
+          "https://www.microchip.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/EmbeddedSystems",
+          "https://www.youtube.com/c/ElectronicsHub"
+        ]
+      },
+      "career_paths": ["Embedded Systems Engineer", "Firmware Developer", "IoT Developer"]
+    },
+    {
+      "name": "Robotics",
+      "motivation": "The future is robotics.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.robotics.org/",
+          "https://www.robotshop.com/",
+          "https://www.robots.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/Robotics",
+          "https://www.youtube.com/c/IEEE"
+        ]
+      },
+      "career_paths": ["Robotics Engineer", "Automation Engineer", "Robotics Technician"]
+    },
+    {
+      "name": "Computer Vision",
+      "motivation": "Computer vision is the next frontier.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://opencv.org/",
+          "https://www.computervision.org/",
+          "https://www.learnopencv.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/ComputerVision",
+          "https://www.youtube.com/c/learnopencv"
+        ]
+      },
+      "career_paths": ["Computer Vision Engineer", "Machine Learning Engineer", "AI Researcher"]
+    },
+    {
+      "name": "Big Data",
+      "motivation": "Big data is not about the data, it's about the insights.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.cloudera.com/",
+          "https://www.databricks.com/",
+          "https://www.hortonworks.com/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/BigDataAcademy",
+          "https://www.youtube.com/c/Cloudera"
+        ]
+      },
+      "career_paths": ["Big Data Engineer", "Data Scientist", "Data Analyst"]
+    },
+    {
+      "name": "Data Visualization",
+      "motivation": "Data visualization is the graphic representation of data.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.tableau.com/",
+          "https://www.powerbi.com/",
+          "https://www.d3js.org/"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/TableauTim",
+          "https://www.youtube.com/c/PowerBI"
+        ]
+      },
+      "career_paths": ["Data Visualization Specialist", "BI Developer", "Data Analyst"]
+    },
+    {
+      "name": "ETL (Extract, Transform, Load)",
+      "motivation": "ETL is the backbone of data warehousing.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.talend.com/",
+          "https://www.informatica.com/",
+          "https://www.microsoft.com/en-us/sql-server/sql-server-2019"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/Talend",
+          "https://www.youtube.com/c/Informatica"
+        ]
+      },
+      "career_paths": ["ETL Developer", "Data Engineer", "Data Warehouse Developer"]
+    },
+    {
+      "name": "Natural Language Processing (NLP)",
+      "motivation": "NLP is the future of human-computer interaction.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.nltk.org/",
+          "https://spacy.io/",
+          "https://www.tensorflow.org/tutorials/text"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/NaturalLanguageProcessing",
+          "https://www.youtube.com/c/DeepLearningAI"
+        ]
+      },
+      "career_paths": ["NLP Engineer", "Data Scientist", "AI Researcher"]
+    },
+    {
+      "name": "Agile Methodology",
+      "motivation": "Agile is not a methodology; it's a mindset.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.agilealliance.org/",
+          "https://www.scrum.org/",
+          "https://www.atlassian.com/agile"
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/AgileCoach",
+          "https://www.youtube.com/c/ScrumAlliance"
+        ]
+      },
+      "career_paths": ["Agile Coach", "Scrum Master", "Project Manager"]
+    },
+    {
+      "name": "Scrum",
+      "motivation": "Scrum is a framework for developing, delivering, and sustaining complex products.",
+      "level": "Intermediate to Advanced",
+      "resources": {
+        "websites": [
+          "https://www.scrum.org/",
+          "https://www.scrumalliance.org/",
+          "https://www.atlassian.com/agile/scrum"
+              }
+  ]
 }
