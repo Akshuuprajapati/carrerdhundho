@@ -502,6 +502,13 @@
           "https://www.scrum.org/",
           "https://www.scrumalliance.org/",
           "https://www.atlassian.com/agile/scrum"
-              }
+        ],
+        "youtube": [
+          "https://www.youtube.com/c/ScrumAlliance",
+          "https://www.youtube.com/c/ScrumOrg"
+        ]
+      },
+      "career_paths": ["Scrum Master", "Agile Coach", "Project Manager"]
+    }
   ]
 }
